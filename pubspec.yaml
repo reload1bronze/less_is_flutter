@@ -22,17 +22,17 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#00ff00"
-  image: assets/unnamed.png
+  image: assets/images/logo.png
   color_dark: "#11ff22"
-  image_dark: assets/unnamed.png
+  image_dark: assets/images/logo.png
   android_12:
-    image: assets/unnamed.png
+    image: assets/images/logo.png
     icon_background_color: "#ff0000"
-    image_dark: assets/unnamed.png
+    image_dark: assets/images/logo.png
     icon_background_color_dark: "#ff00ff"
   web: false
 
 flutter:
   uses-material-design: true
   assets:
-    - assets/
+    - assets/images/
