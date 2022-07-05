@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Controller controller = Get.put(Controller());
+    // Controller controller = Get.put(Controller());
 
     return GetMaterialApp(
       home: Scaffold(
@@ -23,8 +23,10 @@ class MyApp extends StatelessWidget {
           child: Column(
             children: [
               GetBuilder<Controller>(
+                init: Controller(),
                 builder: (_) => Text(
-                  '${controller.x}',
+                  // '${controller.x}',
+                  '${Get.find<Controller>().x}',
                   style: TextStyle(fontSize: 20, color: Colors.red),
                 ),
               ),
@@ -33,7 +35,8 @@ class MyApp extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  controller.increment();
+                  // controller.increment();
+                  Get.find<Controller>().increment();
                 },
                 child: const Text('Add number'),
               ),
