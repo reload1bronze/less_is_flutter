@@ -21,15 +21,15 @@ dev_dependencies:
   flutter_native_splash: ^2.2.4
 
 flutter_native_splash:
-  color: "#00ff00"
-  image: assets/images/logo.png
-  color_dark: "#11ff22"
-  image_dark: assets/images/logo.png
+  color: "#46D1FD"
+  image: assets/images/ic_logo.png
+  color_dark: "#07599C"
+  image_dark: assets/images/ic_logo.png
   android_12:
-    image: assets/images/logo.png
-    icon_background_color: "#ff0000"
-    image_dark: assets/images/logo.png
-    icon_background_color_dark: "#ff00ff"
+    image: assets/images/ic_logo.png
+    icon_background_color: "#46D1FD"
+    image_dark: assets/images/ic_logo.png
+    icon_background_color_dark: "#07599C"
   web: false
 
 flutter:
