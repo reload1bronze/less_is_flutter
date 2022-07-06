@@ -1,11 +1,14 @@
 import 'package:get/get.dart';
 
-class Controller extends GetxController {
-  int _x = 0;
-  int get x => _x;
+import 'package:less_is_flutter/model.dart';
 
-  void increment() {
-    _x++;
-    update();
+class Controller extends GetxController {
+  final person = Person().obs;
+
+  void updateInfo() {
+    person.update((val) {
+      val?.age++;
+      val?.name = 'Coding Chef';
+    });
   }
 }
