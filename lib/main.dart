@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
-
-import 'package:less_is_flutter/personal_card.dart';
+import 'package:less_is_flutter/views/shopping_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +11,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      home: PersonalCard(),
+    return MaterialApp(
+      home: ShoppingPage(),
     );
   }
 }
