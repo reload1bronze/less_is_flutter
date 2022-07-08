@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:less_is_flutter/controllers/cart_controller.dart';
 import 'package:less_is_flutter/controllers/shopping_controller.dart';
 
 class ShoppingPage extends StatelessWidget {
   ShoppingPage({Key? key}) : super(key: key);
   final shoppingController = Get.put(ShoppingController());
+  final cartController = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class ShoppingPage extends StatelessWidget {
           Expanded(
             child: GetX<ShoppingController>(builder: (controller) {
               return ListView.builder(
-                itemCount: controller.products.length,
+                itemCount: shoppingController.count,
                 itemBuilder: (context, index) {
                   return Card(
                     margin: EdgeInsets.all(12),
@@ -31,19 +33,20 @@ class ShoppingPage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    controller.products[index].productName,
+                                    shoppingController
+                                        .products[index].productName,
                                     style: TextStyle(
                                       fontSize: 24,
                                     ),
                                   ),
                                   Text(
-                                    controller
+                                    shoppingController
                                         .products[index].productDescription,
                                   ),
                                 ],
                               ),
                               Text(
-                                '\$${controller.products[index].price}',
+                                '\$${shoppingController.products[index].price}',
                                 style: TextStyle(
                                   fontSize: 24,
                                 ),
@@ -51,7 +54,10 @@ class ShoppingPage extends StatelessWidget {
                             ],
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              cartController
+                                  .addToCart(controller.products[index]);
+                            },
                             child: Text('Add to Cart!'),
                           ),
                         ],
@@ -62,23 +68,35 @@ class ShoppingPage extends StatelessWidget {
               );
             }),
           ),
-          SizedBox(height: 30),
-          Text(
-            'Total amount',
-            style: TextStyle(fontSize: 25, color: Colors.white),
+          SizedBox(
+            height: 30,
+          ),
+          GetX<CartController>(builder: (controller) {
+            return Text(
+              'Total amount: \$ ${cartController.totalPrice}',
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+              ),
+            );
+          }),
+          SizedBox(
+            height: 100,
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        label: Text(
-          'item',
-          style: TextStyle(
-            fontSize: 20,
-          ),
+        label: GetX<CartController>(
+          builder: (controller) {
+            return Text(
+              cartController.count.toString(),
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            );
+          },
         ),
         icon: Icon(Icons.add_shopping_cart_rounded),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.black87,
       ),
     );
   }

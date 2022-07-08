@@ -4,6 +4,7 @@ import 'package:less_is_flutter/models/product.dart';
 
 class ShoppingController extends GetxController {
   var products = <Product>[].obs;
+  int get count => products.length;
 
   @override
   void onInit() {
