@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:less_is_flutter/views/shopping_page.dart';
+import 'package:less_is_flutter/getx_codingchef/views/shopping_page.dart';
 
 void main() {
   runApp(const MyApp());

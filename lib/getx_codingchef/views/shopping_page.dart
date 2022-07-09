@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:less_is_flutter/controllers/cart_controller.dart';
-import 'package:less_is_flutter/controllers/shopping_controller.dart';
+import 'package:less_is_flutter/getx_codingchef/controllers/cart_controller.dart';
+import 'package:less_is_flutter/getx_codingchef/controllers/shopping_controller.dart';
 
 class ShoppingPage extends StatelessWidget {
   ShoppingPage({Key? key}) : super(key: key);

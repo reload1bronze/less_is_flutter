@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
-
-import 'package:less_is_flutter/models/product.dart';
+import 'package:less_is_flutter/getx_codingchef/models/product.dart';
 
 class ShoppingController extends GetxController {
   var products = <Product>[].obs;
