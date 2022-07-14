@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:less_is_flutter/getx_codingchef/views/shopping_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ShoppingPage(),
+      // home: ShoppingPage(),
+      home: Scaffold(
+        body: Container(
+          child: Center(
+            child: IconButton(
+                icon: FaIcon(
+                  FontAwesomeIcons.gamepad,
+                  color: Colors.redAccent,
+                  size: 100,
+                ),
+                onPressed: () {
+                  print("Pressed");
+                }),
+          ),
+        ),
+      ),
     );
   }
 }
