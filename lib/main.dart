@@ -1,84 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:less_is_flutter/profile_page.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('부모 위젯 빌드');
     return MaterialApp(
       // home: ShoppingPage(),
-      home: SafeArea(
-        child: Scaffold(
-          body: Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  padding: const EdgeInsets.all(8),
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListViewItem(index);
-                  },
-                ),
-              ),
-              Container(
-                child: Center(
-                  child: IconButton(
-                    icon: FaIcon(
-                      FontAwesomeIcons.gamepad,
-                      color: Colors.redAccent,
-                      size: 100,
-                    ),
-                    onPressed: () {
-                      print("Pressed");
-                    },
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      // home: Home(),
+      home: ListViewPage(),
     );
   }
 }
 
-class ListViewItem extends StatefulWidget {
-  final int index;
-
-  ListViewItem(this.index, {Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  Home({Key? key}) : super(key: key);
 
   @override
-  State<ListViewItem> createState() => _ListViewItemState();
+  State<Home> createState() => _HomeState();
 }
 
-class _ListViewItemState extends State<ListViewItem> {
-  bool isVisible = false;
-
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    print('자식 위젯 빌드 ${widget.index}');
-    return Column(
-      children: [
-        ListTile(
-          title: new Text('gogo'),
-          trailing: new Switch(
-            value: isVisible,
-            activeColor: Colors.pink,
-            activeTrackColor: Colors.pinkAccent,
-            onChanged: (value) {
-              setState(() {
-                isVisible = value;
-              });
-            },
-          ),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    margin: EdgeInsets.all(14),
+                    padding: EdgeInsets.all(14),
+                    height: 150,
+                    color: Colors.blue,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Text('hello'),
+                        Positioned(
+                          right: 5,
+                          top: 5,
+                          child: SizedOverflowBox(
+                            size: Size(300, 300),
+                            child: Container(
+                              width: 50,
+                              height: 100,
+                              color: Color(0xdd123456),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-        Visibility(
-          visible: isVisible,
-          child: Text('버튼 누르면 생기는 위젯'),
-        )
-      ],
+      ),
     );
   }
 }
