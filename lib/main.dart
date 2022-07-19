@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:less_is_flutter/profile_page.dart';
+import 'package:less_is_flutter/list_view_page.dart';
 
 void main() => runApp(MyApp());
 
