@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
-import 'package:less_is_flutter/core/error/exceptions.dart';
-import 'package:less_is_flutter/core/platform/network_info.dart';
+
 import 'package:less_is_flutter/features/data/datasources/number_trivia_local_data_source.dart';
 import 'package:less_is_flutter/features/data/datasources/number_trivia_remote_data_source.dart';
 import 'package:less_is_flutter/features/data/models/number_trivia_model.dart';
-
 import 'package:less_is_flutter/features/domain/entities/number_trivia.dart';
 import 'package:less_is_flutter/features/domain/repositories/number_trivia_repository.dart';
+import 'package:less_is_flutter/core/error/exceptions.dart';
 import 'package:less_is_flutter/core/error/failure.dart';
+import 'package:less_is_flutter/core/platform/network_info.dart';
 
 typedef Future<NumberTrivia> _ConcreteOrRandomChooser();
 
