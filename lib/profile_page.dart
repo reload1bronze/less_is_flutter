@@ -28,7 +28,7 @@ class ListViewPage extends StatelessWidget {
           ),
           Container(
             color: Colors.amberAccent,
-            height: 300,
+            height: 100,
             width: 10,
             child: const ListViewItem(),
           ),

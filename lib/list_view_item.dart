@@ -27,7 +27,16 @@ class _ListViewItemState extends State<ListViewItem> {
                 showWhenUnlinked: false,
                 child: Material(
                   child: Container(
-                    child: Text('hello'),
+                    child: TextButton(
+                      child: Text('텍스트버튼'),
+                      onPressed: () {
+                        setState(() {
+                          print('hello');
+                          _overlayEntry!.remove();
+                          isVisible = !isVisible;
+                        });
+                      },
+                    ),
                     color: Color(0x11ff3458),
                     height: 200,
                     width: 10,
@@ -46,7 +55,8 @@ class _ListViewItemState extends State<ListViewItem> {
       child: Column(
         children: [
           Container(
-            height: 200,
+            color: Colors.amber,
+            height: 50,
           ),
           TextButton(
             onPressed: () {
