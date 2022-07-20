@@ -23,6 +23,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -38,24 +40,26 @@ class _HomeState extends State<Home> {
                     padding: EdgeInsets.all(14),
                     height: 150,
                     color: Colors.blue,
-                    child: Stack(
-                      clipBehavior: Clip.none,
-                      children: [
-                        Text('hello'),
-                        Positioned(
-                          right: 5,
-                          top: 5,
-                          child: SizedOverflowBox(
-                            size: Size(300, 300),
-                            child: Container(
-                              width: 50,
-                              height: 100,
-                              color: Color(0xdd123456),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    child: isSelected
+                        ? Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              Text('hello'),
+                              Positioned(
+                                right: 5,
+                                top: 5,
+                                child: SizedOverflowBox(
+                                  size: Size(300, 300),
+                                  child: Container(
+                                    width: 50,
+                                    height: 100,
+                                    color: Color(0xdd123456),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        : Text(''),
                   );
                 },
               ),
